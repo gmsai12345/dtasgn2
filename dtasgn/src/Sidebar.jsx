@@ -23,6 +23,11 @@ const Sidebar = ({ children }) => {
       icon: <HomeIcon />
     },
     {
+      path: "/",
+      name: "1.Demo Task",
+    },
+    
+    {
       path: "/TaskHeading1",
       name: "Task Heading 1",
       icon: <Filter1Icon />
