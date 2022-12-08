@@ -14,10 +14,11 @@ import "./Taskheading2.css";
 export default function () {
   return (
     <div>
-      <div className="TaskHeading2">
+      <div>
+      <h1 className = "title">Task Heading 2</h1>
         <figure data-title="" className="TaskHeading2">
           <div className="Task2">
-            <h1 aligntext="center">Task Heading 2</h1>
+            
             <h1>
               <KeyboardArrowUpIcon /> Thread A
             </h1>
@@ -89,7 +90,7 @@ export default function () {
       </div>
       <div>
         <CustomLink to="/TaskHeading3">
-          <figure>
+          <figure className="arrow">
             <img
               src="https://img.icons8.com/ios/50/000000/forward--v1.png"
               alt=""
@@ -106,7 +107,7 @@ export default function () {
         </CustomLink>
 
         <CustomLink to="/TaskHeading1">
-          <figure>
+          <figure className="arrow">
             <img
               src="https://img.icons8.com/ios-filled/50/000000/back.png"
               alt=""
