@@ -1,15 +1,9 @@
 import React from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useNavigate } from "react-router-dom";
-export default function () {
-  const navigate = useNavigate();
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
-  const navigateTo6 = () => {
-    navigate("/TaskHeading6");
-  };
-  const navigateTo4 = () => {
-    navigate("/TaskHeading4");
-  };
+export default function () {
   return (
     <div>
       <div className="TaskHeading5">
@@ -23,21 +17,35 @@ export default function () {
           />
 
           <br />
-          <KeyboardArrowDownIcon />
         </div>
+        <figure align="right">
+          <KeyboardArrowDownIcon />
+        </figure>
       </div>
-      <div onclick={navigateTo6}>
+      <CustomLink to="/TaskHeading6">
         <img
           src="https://img.icons8.com/ios/50/000000/forward--v1.png"
           alt=""
         />
-      </div>
-      <span onClick={navigateTo4}>
+      </CustomLink>
+      <CustomLink to="/TaskHeading4">
         <img
           src="https://img.icons8.com/ios-filled/50/000000/back.png"
           alt=""
         />
-      </span>
+      </CustomLink>
     </div>
+  );
+}
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to);
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+
+  return (
+    <li className={isActive ? "active" : ""}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </li>
   );
 }
