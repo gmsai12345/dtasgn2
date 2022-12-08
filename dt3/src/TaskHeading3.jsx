@@ -9,10 +9,11 @@ export default function () {
   return (
     <div>
       <div className="TaskHeading3">
+      <h1 className = "title">Task Heading 3</h1>
         <div className="Task3">
-          <h1 aligntext="center">Task Heading 3</h1>
+          
           <div>
-            <input type="text" id="ip1" />
+            <input type="text" id="ip1" className = "bo" />
           </div>
           <br />
         </div>
