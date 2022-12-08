@@ -1,0 +1,12 @@
+.task1 {
+  text-align: right;
+}
+.task2 {
+  text-align: left;
+}
+.left {
+  float: left;
+}
+.right{
+  float:right;
+}
