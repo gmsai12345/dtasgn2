@@ -1,15 +1,19 @@
 import React from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 export default function () {
-  const navigate = useNavigate();
-
-  const navigateTo8 = () => {
-    navigate("/TaskHeading8");
-  };
-  const navigateTo6 = () => {
-    navigate("/TaskHeading6");
-  };
+  function CustomLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to);
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+    return (
+      <li className={isActive ? "active" : ""}>
+        <Link to={to} {...props}>
+          {children}
+        </Link>
+      </li>
+    );
+  }
   return (
     <div>
       <div className="TaskHeading7">
@@ -19,22 +23,24 @@ export default function () {
             <a href="/media/cc0-audio/t-rex-roar.mp3">Download audio</a>
           </audio>
           <br />
-          <KeyboardArrowDownIcon />
+          <figure align="right">
+            <KeyboardArrowDownIcon />
+          </figure>
         </div>
       </div>
 
-      <div onclick={navigateTo8}>
+      <CustomLink to="/TaskHeading8">
         <img
           src="https://img.icons8.com/ios/50/000000/forward--v1.png"
           alt=""
         />
-      </div>
-      <span onClick={navigateTo6}>
+      </CustomLink>
+      <CustomLink to="/TaskHeading6">
         <img
           src="https://img.icons8.com/ios-filled/50/000000/back.png"
           alt=""
         />
-      </span>
+      </CustomLink>
     </div>
   );
 }
