@@ -6,9 +6,20 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 export default function () {
+  function CustomLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to);
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+      return (
+      <li className={isActive ? "active" : ""}>
+        <Link to={to} {...props}>
+          {children}
+        </Link>
+      </li>
+    );
+  }
   
   return (
-    <div>
+      <div>
       <figure data-title="" className="TaskHeading6">
         <div className="Task6">
           <h1>Task Heading 7</h1>
@@ -58,6 +69,7 @@ export default function () {
           <figure align="right">
             <KeyboardArrowDownIcon />
           </figure>
+          </div>
           </figure>
   
       <CustomLink to="/TaskHeading7">
@@ -65,7 +77,7 @@ export default function () {
           src="https://img.icons8.com/ios/50/000000/forward--v1.png"
           alt=""
         />
-       <CustomLink/>
+       </CustomLink>
       <CustomLink to="/TaskHeading5">
         <img
           src="https://img.icons8.com/ios-filled/50/000000/back.png"
@@ -74,16 +86,6 @@ export default function () {
       </CustomLink>
       </div>
       
-  );
-}
-function CustomLink({ to, children, ...props }) {
-  const resolvedPath = useResolvedPath(to);
-  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
-    return (
-    <li className={isActive ? "active" : ""}>
-      <Link to={to} {...props}>
-        {children}
-      </Link>
-    </li>
+      
   );
 }
