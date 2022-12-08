@@ -10,3 +10,22 @@
 .right{
   float:right;
 }
+.Task6 {
+  width: relative;
+  border: 2px solid gray;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 25px;
+}
+.title {
+  width: relative;
+  height: 50px;
+  color: white;
+  border: 2px solid gray;
+  background-color: black;
+  padding: 1px;
+  margin: 0px;
+  text-align: center;
+  border-radius: 25px;
+  font-size: 28px;
+}
