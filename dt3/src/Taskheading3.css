@@ -1,12 +1,23 @@
-.task1 {
-  text-align: right;
+.Task3 {
+  width: relative;
+  border: 2px solid gray;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 25px;
 }
-.task2 {
-  text-align: left;
+.title {
+  width: relative;
+  height: 40px;
+  color: white;
+  border: 2px solid gray;
+  background-color: black;
+  padding: 1px;
+  margin: 0px;
+  text-align: center;
+  border-radius: 25px;
+  font-size: 28px;
 }
-.left {
-  float: left;
-}
-.right{
-  float:right;
+.box{
+  height: 320px;
+  width : 461px;
 }
