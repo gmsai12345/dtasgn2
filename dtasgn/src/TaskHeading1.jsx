@@ -1,15 +1,10 @@
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import React from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import TaskHeading2 from "./TaskHeading2";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 //import {  BrowserRouter as Router, Route, Redirect,Routes} from "react-router-dom";
 export default function () {
-  const navigate = useNavigate();
-
-  const navigateTo2 = () => {
-    // 👇️ navigate to /contacts
-    navigate("/TaskHeading2");
-  };
   return (
     <div>
       <div>
@@ -41,7 +36,7 @@ export default function () {
         </figure>
       </div>
 
-      <div align-text="right" onClick={navigateTo2}>
+      <CustomLink to="/TaskHeading2">
         <figure>
           <img
             src="https://img.icons8.com/ios/50/000000/forward--v1.png"
@@ -55,7 +50,19 @@ export default function () {
             <p align-text="right"> Next Task-&gt; </p>
           </figcaption>
         </figure>
-      </div>
+      </CustomLink>
     </div>
+  );
+}
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to);
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+
+  return (
+    <li className={isActive ? "active" : ""}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </li>
   );
 }
