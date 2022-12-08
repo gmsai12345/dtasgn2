@@ -17,6 +17,8 @@ export default function () {
           <KeyboardArrowDownIcon />
         </div>
       </div>
+      <img src="https://img.icons8.com/ios/50/000000/forward--v1.png" alt = ""/>
+      <img src="https://img.icons8.com/ios-filled/50/000000/back.png" alt = ""/>
     </div>
   );
 }
