@@ -1,5 +1,7 @@
 import React from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import TaskHeading2 from "./TaskHeading2";
+//import {  BrowserRouter as Router, Route, Redirect,Routes} from "react-router-dom";
 export default function () {
   return (
     <div>
@@ -29,6 +31,22 @@ export default function () {
               <KeyboardArrowDownIcon />
             </div>
           </div>
+        </figure>
+      </div>
+
+      <div align-text="right">
+        <figure>
+          <img
+            src="https://img.icons8.com/ios/50/000000/forward--v1.png"
+            alt=""
+            align="right"
+          />
+          <br />
+          <br />
+          <br />
+          <figcaption>
+            <p align-text="right"> Next Task-&gt; </p>
+          </figcaption>
         </figure>
       </div>
     </div>
