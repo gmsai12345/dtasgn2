@@ -1,8 +1,15 @@
 import React from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import TaskHeading2 from "./TaskHeading2";
+import { useNavigate } from "react-router-dom";
 //import {  BrowserRouter as Router, Route, Redirect,Routes} from "react-router-dom";
 export default function () {
+  const navigate = useNavigate();
+
+  const navigateTo2 = () => {
+    // 👇️ navigate to /contacts
+    navigate("/TaskHeading2");
+  };
   return (
     <div>
       <div>
@@ -14,7 +21,7 @@ export default function () {
         >
           <div className="Task1">
             <figcaption>
-              <h1 align-text="center">Task 1</h1>
+              <h1 align-text="">Task 1</h1>
             </figcaption>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -34,7 +41,7 @@ export default function () {
         </figure>
       </div>
 
-      <div align-text="right">
+      <div align-text="right" onClick={navigateTo2}>
         <figure>
           <img
             src="https://img.icons8.com/ios/50/000000/forward--v1.png"
