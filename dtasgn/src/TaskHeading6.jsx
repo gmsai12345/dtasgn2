@@ -2,7 +2,17 @@ import React from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import SaveIcon from "@mui/icons-material/Save";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { useNavigate } from "react-router-dom";
+
 export default function () {
+  const navigate = useNavigate();
+
+  const navigateTo7 = () => {
+    navigate("/TaskHeading7");
+  };
+  const navigateTo5 = () => {
+    navigate("/TaskHeading5");
+  };
   return (
     <div>
       <figure data-title="" className="TaskHeading6">
@@ -54,9 +64,18 @@ export default function () {
           <KeyboardArrowDownIcon />
         </div>
       </figure>
-      <img src="https://img.icons8.com/ios/50/000000/forward--v1.png" alt = ""/>
-
-      <img src="https://img.icons8.com/ios-filled/50/000000/back.png" alt = ""/>
+      <div onclick={navigateTo7}>
+        <img
+          src="https://img.icons8.com/ios/50/000000/forward--v1.png"
+          alt=""
+        />
+      </div>
+      <span onClick={navigateTo5}>
+        <img
+          src="https://img.icons8.com/ios-filled/50/000000/back.png"
+          alt=""
+        />
+      </span>
     </div>
   );
 }
