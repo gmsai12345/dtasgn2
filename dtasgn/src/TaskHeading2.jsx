@@ -6,7 +6,18 @@ import LinkIcon from "@mui/icons-material/Link";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import SaveIcon from "@mui/icons-material/Save";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import TaskHeading1 from "./TaskHeading1";
+import TaskHeading3 from "./TaskHeading3";
 export default function () {
+  const navigate = useNavigate();
+
+  const navigateTo3 = () => {
+    navigate("/TaskHeading3");
+  };
+  const navigateTo1 = () => {
+    navigate("/TaskHeading1");
+  };
   return (
     <div>
       <div className="TaskHeading2">
@@ -80,8 +91,43 @@ export default function () {
           </div>
         </figure>
       </div>
-      <img src="https://img.icons8.com/ios/50/000000/forward--v1.png" alt = ""/>
-      <img src="https://img.icons8.com/ios-filled/50/000000/back.png" alt = ""/>
+
+      <div onclick={navigateTo3}>
+        <figure>
+          <img
+            src="https://img.icons8.com/ios/50/000000/forward--v1.png"
+            alt=""
+            align="right"
+          />
+          <br />
+          <br />
+          <br />
+          <figcaption>
+            <p align-text="right"> Next Task-&gt; </p>
+          </figcaption>
+        </figure>
+      </div>
+      <div onclick={navigateTo1}>
+        <figure>
+          <button onclick={navigateTo1}>
+            <img
+              src="https://img.icons8.com/ios-filled/50/000000/back.png"
+              alt=""
+              align="left"
+            />
+          </button>
+          <br />
+          <br />
+          <br />
+          <figcaption>
+            <p align-text="right"> Next Task-&gt; </p>
+          </figcaption>
+        </figure>
+      </div>
+      <Routes>
+        <Route path="/TaskHeading3" element={<TaskHeading3 />} />
+        <Route path="/TaskHeading1" element={<TaskHeading1 />} />
+      </Routes>
     </div>
   );
 }
