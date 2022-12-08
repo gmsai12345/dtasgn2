@@ -2,17 +2,11 @@ import React from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import SaveIcon from "@mui/icons-material/Save";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 export default function () {
-  const navigate = useNavigate();
-
-  const navigateTo7 = () => {
-    navigate("/TaskHeading7");
-  };
-  const navigateTo5 = () => {
-    navigate("/TaskHeading5");
-  };
+  
   return (
     <div>
       <figure data-title="" className="TaskHeading6">
@@ -24,9 +18,9 @@ export default function () {
           <form action="/action_page.php">
             <input type="text" id="fname" name="fname" />
           </form>
-          <p>
-            <KeyboardArrowUpIcon /> Thread A
-          </p>
+          <figure align="right">
+            <KeyboardArrowDownIcon />
+          </figure>
           <figure data-title="Thread A" className="Task Heading 6_1">
             <figcaption>
               <figure data-title="Butter Cookies!" className="Task Heading 6_2">
@@ -51,9 +45,9 @@ export default function () {
               </figure>
             </figcaption>
           </figure>
-          <h1>
-            <KeyboardArrowUpIcon /> Conclusion
-          </h1>
+          <figure align="right">
+            <KeyboardArrowDownIcon />
+          </figure>
           <form action="/action_page.php" className="TaskHeading6form2">
             <input type="text" id="fname" name="fname" />
           </form>
@@ -61,21 +55,35 @@ export default function () {
           <br />
           <SaveIcon />
           <br />
-          <KeyboardArrowDownIcon />
-        </div>
-      </figure>
-      <div onclick={navigateTo7}>
+          <figure align="right">
+            <KeyboardArrowDownIcon />
+          </figure>
+          </figure>
+  
+      <CustomLink to="/TaskHeading7">
         <img
           src="https://img.icons8.com/ios/50/000000/forward--v1.png"
           alt=""
         />
-      </div>
-      <span onClick={navigateTo5}>
+       <CustomLink/>
+      <CustomLink to="/TaskHeading5">
         <img
           src="https://img.icons8.com/ios-filled/50/000000/back.png"
           alt=""
         />
-      </span>
-    </div>
+      </CustomLink>
+      </div>
+      
+  );
+}
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to);
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+    return (
+    <li className={isActive ? "active" : ""}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </li>
   );
 }
