@@ -16,10 +16,9 @@ export default function () {
           height="320"
         >
           <div className="Task1">
-            <figcaption>
-              <h1 align-text="">Task 1</h1>
-            </figcaption>
-            <p>
+            <p className="title">Task Heading 1</p>
+
+            <p className="para">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
@@ -28,11 +27,11 @@ export default function () {
               electronic typesetting, remaining essentially unchanged. It was
               popularised in the 1960s with the release of Letraset sheets
               containing Lorem Ipsum passages, and more recently with desktop p
+              <br />
+              <div align="right">
+                <KeyboardArrowDownIcon />
+              </div>
             </p>
-            <br />
-            <div align="right">
-              <KeyboardArrowDownIcon />
-            </div>
           </div>
         </figure>
       </div>
