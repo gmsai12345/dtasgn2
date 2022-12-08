@@ -21,8 +21,8 @@ export default function () {
   return (
     <div>
       <figure data-title="" className="TaskHeading6">
+        <h1 className="title">Task Heading 6</h1>
         <div className="Task6">
-          <h1>Task Heading 7</h1>
           <h1>
             <KeyboardArrowUpIcon /> Introduction
           </h1>
