@@ -6,18 +6,11 @@ import LinkIcon from "@mui/icons-material/Link";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import SaveIcon from "@mui/icons-material/Save";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { Routes, Route, useNavigate } from "react-router-dom";
+//import { Routes, Route, useNavigate } from "react-router-dom";
 import TaskHeading1 from "./TaskHeading1";
 import TaskHeading3 from "./TaskHeading3";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 export default function () {
-  const navigate = useNavigate();
-
-  const navigateTo3 = () => {
-    navigate("/TaskHeading3");
-  };
-  const navigateTo1 = () => {
-    navigate("/TaskHeading1");
-  };
   return (
     <div>
       <div className="TaskHeading2">
@@ -87,12 +80,14 @@ export default function () {
             <br />
             <SaveIcon />
             <br />
-            <KeyboardArrowDownIcon />
           </div>
+        </figure>
+        <figure align="right">
+          <KeyboardArrowDownIcon />
         </figure>
       </div>
 
-      <div onclick={navigateTo3}>
+      <CustomLink to="/TaskHeading3">
         <figure>
           <img
             src="https://img.icons8.com/ios/50/000000/forward--v1.png"
@@ -106,10 +101,11 @@ export default function () {
             <p align-text="right"> Next Task-&gt; </p>
           </figcaption>
         </figure>
-      </div>
-      <div onclick={navigateTo1}>
+      </CustomLink>
+
+      <CustomLink to="/TaskHeading1">
         <figure>
-          <button onclick={navigateTo1}>
+          <button>
             <img
               src="https://img.icons8.com/ios-filled/50/000000/back.png"
               alt=""
@@ -123,11 +119,19 @@ export default function () {
             <p align-text="right"> Next Task-&gt; </p>
           </figcaption>
         </figure>
-      </div>
-      <Routes>
-        <Route path="/TaskHeading3" element={<TaskHeading3 />} />
-        <Route path="/TaskHeading1" element={<TaskHeading1 />} />
-      </Routes>
+      </CustomLink>
     </div>
+  );
+}
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to);
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+
+  return (
+    <li className={isActive ? "active" : ""}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </li>
   );
 }
