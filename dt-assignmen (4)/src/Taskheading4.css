@@ -1,0 +1,24 @@
+.task1 {
+  text-align: right;
+}
+.task2 {
+  text-align: left;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.embed1 {
+  position: absolute;
+  width: 452px;
+  height: 612px;
+}
+.Task4 {
+  width: relative;
+  border: 2px solid gray;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 25px;
+}
