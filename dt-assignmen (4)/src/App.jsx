@@ -15,18 +15,20 @@ import Navbar from "./Navbar/Navbar";
 import Home from "./Pages_Navbar/Home";
 import Setting from "./Pages_Navbar/Setting";
 import Notification from "./Pages_Navbar/Notification";
-import Home1 from "./Home1";
+import Home1 from "./Home1/Home1";
 export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <div>
-          <Navbar />
+          <Navbar/>
+            
 
           <Sidebar>
-            <Routes>
+          <Routes>
               <Route path="/Home" element={<Home />} />
-              <Route path="/Home1" element={<Home1 />} />
+            </Routes>
+            <Routes>
               <Route path="/TaskHeading1" element={<TaskHeading1 />} />
               <Route path="/TaskHeading2" element={<TaskHeading2 />} />
               <Route path="/TaskHeading3" element={<TaskHeading3 />} />
@@ -40,8 +42,7 @@ export default function App() {
           </Sidebar>
           <div className="container">
             <Routes>
-              <Route path="/Home" element={<Home />} />
-              <Route path="/Setting" element={<Setting />} />
+                            <Route path="/Setting" element={<Setting />} />
               <Route path="/Notification" element={<Notification />} />
             </Routes>
           </div>
